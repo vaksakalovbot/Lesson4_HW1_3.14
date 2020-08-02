@@ -10,21 +10,24 @@ import Foundation
 import Combine
 
 final class ColorManager: ObservableObject {
-    @Published var alphaSliderValue: Float = 0
+    @Published var alphaSliderValue: Float 
     
-    @Published var targetValue: Int = Int.random(in: 0...100) {
+    @Published var targetValue: Int {
         didSet {
             setAlphaSliderValue()
         }
     }
     
-    @Published var currentSliderValue: Double = Double(Int.random(in: 0...100)) {
+    @Published var currentSliderValue: Double {
         didSet {
             setAlphaSliderValue()
         }
     }
     
     init(){
+        alphaSliderValue = 0
+        targetValue = Int.random(in: 0...100)
+        currentSliderValue = Double(Int.random(in: 0...100))
         setAlphaSliderValue()
     }
     
